@@ -21,7 +21,6 @@ app.get('/', (req, res) => {
     res.json(d)
   })
   .catch(err => console.log(err))
-  // res.send('Hello World!')
 })
 
 app.listen(port, () => {
