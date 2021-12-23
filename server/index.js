@@ -4,9 +4,9 @@ const getCards = require('./getCards')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
+app.get('/api/search', (req, res) => {
   let offset = parseInt(req.query.offset) || 0;
-  let limit = parseInt(req.query.limit) || 10;
+  let limit = parseInt(req.query.limit) || 50;
 
   getCards(req.query).then((data) => {
 
@@ -22,6 +22,8 @@ app.get('/', (req, res) => {
   })
   .catch(err => console.log(err))
 })
+
+app.use(express.static('static'))
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
